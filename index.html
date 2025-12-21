@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishlab Chiqarish va Tannarx (2000) - FAXR MADAD KONSALT</title>
+    <style>
+        :root {
+            /* AMBER/ORANGE THEME FOR MANUFACTURING */
+            --primary-color: #d97706; /* Amber 600 */
+            --primary-dark: #b45309;  /* Amber 700 */
+            --bg-color: #fffbeb;      /* Amber 50 */
+            --card-bg: #ffffff;
+            --text-color: #451a03;    /* Amber 950 */
+            --border-color: #fcd34d;  /* Amber 300 */
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --info-color: #3b82f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 { margin: 0; font-size: 1.5rem; }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* TABS */
+        .tabs { display: flex; gap: 10px; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 2px; }
+        .tab-btn {
+            padding: 0.8rem 1.5rem; border: none; background: #fde68a; color: var(--text-color);
+            border-radius: 0.5rem 0.5rem 0 0; cursor: pointer; font-weight: 600; transition: 0.2s;
+        }
+        .tab-btn.active { background: var(--primary-color); color: white; }
+
+        .card {
+            background: var(--card-bg); border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem; border: 1px solid var(--border-color); margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            color: var(--primary-dark); margin-top: 0; border-bottom: 1px solid #fcd34d;
+            padding-bottom: 0.5rem; margin-bottom: 1rem; font-size: 1.2rem; font-weight: bold;
+        }
+
+        /* FORMS */
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.9rem; }
+        input, select {
+            width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 0.5rem;
+            font-size: 0.95rem; box-sizing: border-box;
+        }
+        input:focus, select:focus { outline: none; border-color: var(--primary-dark); box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2); }
+
+        .btn {
+            padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center; gap: 5px; transition: 0.2s; color: white;
+        }
+        .btn-primary { background-color: var(--primary-color); }
+        .btn-success { background-color: var(--success-color); }
+        .btn-danger { background-color: var(--danger-color); }
+        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #fde68a; }
+        th { background-color: #fef3c7; color: var(--primary-dark); font-weight: 700; }
+        .num-col { text-align: right; font-family: 'Consolas', monospace; font-weight: 600; }
+        
+        .cost-breakdown {
+            display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-around;
+            background: #fff8dc; padding: 15px; border-radius: 8px; margin-top: 10px;
+        }
+        .cost-item { text-align: center; }
+        .cost-val { font-size: 1.2rem; font-weight: bold; color: var(--primary-dark); }
+        .cost-lbl { font-size: 0.8rem; color: #78350f; }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            .card { border: none; box-shadow: none; padding: 0; }
+            table { border: 1px solid black; }
+            th, td { border: 1px solid black; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="no-print">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div style="background:white; color:var(--primary-color); width:35px; height:35px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">20</div>
+            <div>
+                <h1>Ishlab Chiqarish va Tannarx</h1>
+                <div style="font-size:0.8rem; opacity:0.9;">"FAXR MADAD KONSALT"</div>
+            </div>
+        </div>
+        <button onclick="window.print()" class="btn btn-sm" style="background:white; color:var(--primary-color);">🖨️ Chop etish</button>
+    </header>
+
+    <div class="container">
+
+        <div class="tabs no-print">
+            <button class="tab-btn active" onclick="setTab('materials')">📦 Xomashyo Baza</button>
+            <button class="tab-btn" onclick="setTab('production')">⚙️ Ishlab Chiqarish</button>
+            <button class="tab-btn" onclick="setTab('history')">📜 Tarix</button>
+        </div>
+
+        <!-- TAB 1: MATERIALS -->
+        <div id="tab-materials">
+            <div class="card no-print">
+                <h3 class="section-title">Yangi Xomashyo Qo'shish (2010)</h3>
+                <form id="mat-form" class="form-row" style="align-items:end;">
+                    <div>
+                        <label>Xomashyo Nomi</label>
+                        <input type="text" id="m-name" placeholder="Un, Yog', Shakar..." required>
+                    </div>
+                    <div>
+                        <label>O'lchov Birligi</label>
+                        <select id="m-unit">
+                            <option>kg</option>
+                            <option>litr</option>
+                            <option>dona</option>
+                            <option>metr</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Narxi (1 birlik uchun)</label>
+                        <input type="number" id="m-price" placeholder="5000" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Qo'shish</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3 class="section-title">Xomashyolar Ro'yxati</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nomi</th>
+                            <th>Birlik</th>
+                            <th class="num-col">Narx (so'm)</th>
+                            <th class="no-print">Amal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mat-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 2: PRODUCTION -->
+        <div id="tab-production" style="display:none;">
+            <div class="card no-print">
+                <h3 class="section-title">Yangi Kalkulyatsiya (2000)</h3>
+                <div style="margin-bottom:20px; padding:10px; background:#fff7ed; border-left:4px solid var(--primary-color);">
+                    <strong>Jarayon:</strong> Mahsulot nomini kiriting, keyin unga ketadigan xarajatlarni (xomashyo, ish haqi, boshqa) qo'shing. Tizim tannarxni hisoblaydi.
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label>Tayyor Mahsulot Nomi</label>
+                        <input type="text" id="prod-name" placeholder="Masalan: Non (Buxanka)">
+                    </div>
+                    <div>
+                        <label>Ishlab Chiqarish Soni (Qancha?)</label>
+                        <input type="number" id="prod-qty" value="100" min="1">
+                    </div>
+                </div>
+
+                <hr style="border:0; border-top:1px dashed var(--border-color); margin:20px 0;">
+
+                <!-- Cost Components -->
+                <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:20px;">
+                    
+                    <!-- 1. Direct Materials -->
+                    <div style="background:white; padding:15px; border:1px solid #e5e7eb; border-radius:8px;">
+                        <h4 style="margin-top:0; color:#059669;">1. Xomashyo (2010)</h4>
+                        <div style="display:flex; gap:5px; margin-bottom:10px;">
+                            <select id="calc-mat-select" style="flex:1;"><option>Tanlang...</option></select>
+                            <input type="number" id="calc-mat-qty" placeholder="Miqdor" style="width:70px;">
+                            <button onclick="addMaterialToCalc()" class="btn btn-sm btn-success">+</button>
+                        </div>
+                        <ul id="calc-mat-list" style="padding-left:20px; font-size:0.9rem; color:#4b5563;"></ul>
+                        <div style="text-align:right; font-weight:bold; color:#059669;">Jami: <span id="total-mat">0</span> so'm</div>
+                    </div>
+
+                    <!-- 2. Direct Labor -->
+                    <div style="background:white; padding:15px; border:1px solid #e5e7eb; border-radius:8px;">
+                        <h4 style="margin-top:0; color:#2563eb;">2. Ish Haqi (2070)</h4>
+                        <div style="margin-bottom:10px;">
+                            <label style="font-size:0.8rem;">Ushbu partiya uchun umumiy ish haqi:</label>
+                            <input type="number" id="calc-labor" placeholder="0" oninput="updateTotals()">
+                        </div>
+                        <div style="margin-bottom:10px;">
+                            <label style="font-size:0.8rem;">Ijtimoiy Soliq (12%):</label>
+                            <input type="number" id="calc-social" placeholder="Avto" readonly style="background:#f3f4f6;">
+                        </div>
+                        <div style="text-align:right; font-weight:bold; color:#2563eb;">Jami: <span id="total-labor">0</span> so'm</div>
+                    </div>
+
+                    <!-- 3. Overhead -->
+                    <div style="background:white; padding:15px; border:1px solid #e5e7eb; border-radius:8px;">
+                        <h4 style="margin-top:0; color:#d97706;">3. Bilvosita Xarajat (2510)</h4>
+                        <div style="margin-bottom:10px;">
+                            <label style="font-size:0.8rem;">Elektr, Gaz, Ijara (Taqsimlangan):</label>
+                            <input type="number" id="calc-overhead" placeholder="0" oninput="updateTotals()">
+                        </div>
+                        <div style="text-align:right; font-weight:bold; color:#d97706;">Jami: <span id="total-overhead">0</span> so'm</div>
+                    </div>
+                </div>
+
+                <!-- Grand Total -->
+                <div class="cost-breakdown">
+                    <div class="cost-item">
+                        <div class="cost-lbl">ISH. CHIQ. SONI</div>
+                        <div class="cost-val" id="res-qty">0</div>
+                    </div>
+                    <div class="cost-item">
+                        <div class="cost-lbl">JAMI XARAJAT</div>
+                        <div class="cost-val" id="res-total">0 so'm</div>
+                    </div>
+                    <div class="cost-item">
+                        <div class="cost-lbl">1 DONA TANNARXI</div>
+                        <div class="cost-val" style="color:#dc2626; font-size:1.5rem;" id="res-unit">0 so'm</div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:20px;">
+                    <button onclick="saveProduction()" class="btn btn-primary" style="font-size:1.2rem;">💾 Ishlab Chiqarishni Yakunlash</button>
+                    <p style="font-size:0.8rem; color:#666;">Bu omborga tayyor mahsulot (2810) sifatida kirim qilinadi</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TAB 3: HISTORY -->
+        <div id="tab-history" style="display:none;">
+            <div class="card">
+                <h3 class="section-title">Ishlab Chiqarish Tarixi</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sana</th>
+                            <th>Mahsulot</th>
+                            <th>Soni</th>
+                            <th class="num-col">Jami Xarajat</th>
+                            <th class="num-col">1 dona Tannarxi</th>
+                            <th class="no-print">Tafsilot</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hist-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // DATA STORE
+        let materials = JSON.parse(localStorage.getItem('mfg_materials') || '[]');
+        let history = JSON.parse(localStorage.getItem('mfg_history') || '[]');
+        
+        // TEMP CALC STATE
+        let currentMats = [];
+
+        window.onload = function() {
+            renderMaterials();
+            renderHistory();
+        };
+
+        function setTab(tab) {
+            document.getElementById('tab-materials').style.display = tab === 'materials' ? 'block' : 'none';
+            document.getElementById('tab-production').style.display = tab === 'production' ? 'block' : 'none';
+            document.getElementById('tab-history').style.display = tab === 'history' ? 'block' : 'none';
+            
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if(tab === 'production') updateMatSelect();
+        }
+
+        // --- MATERIALS ---
+        document.getElementById('mat-form').onsubmit = function(e) {
+            e.preventDefault();
+            materials.push({
+                id: Date.now(),
+                name: document.getElementById('m-name').value,
+                unit: document.getElementById('m-unit').value,
+                price: parseFloat(document.getElementById('m-price').value)
+            });
+            saveMats();
+            this.reset();
+            renderMaterials();
+        };
+
+        function renderMaterials() {
+            const tbody = document.getElementById('mat-tbody');
+            tbody.innerHTML = materials.map(m => `
+                <tr>
+                    <td>${m.name}</td>
+                    <td>${m.unit}</td>
+                    <td class="num-col">${m.price.toLocaleString()}</td>
+                    <td class="no-print"><button onclick="delMat(${m.id})" style="color:red;border:none;background:none;cursor:pointer;">x</button></td>
+                </tr>
+            `).join('');
+        }
+        function saveMats() { localStorage.setItem('mfg_materials', JSON.stringify(materials)); }
+        function delMat(id) { if(confirm('Ochirilsinmi?')) { materials = materials.filter(x=>x.id!==id); saveMats(); renderMaterials(); } }
+
+        // --- PRODUCTION CALC ---
+        function updateMatSelect() {
+            const sel = document.getElementById('calc-mat-select');
+            sel.innerHTML = '<option value="">-- Xomashyo tanlang --</option>' + 
+                materials.map(m => `<option value="${m.id}">${m.name} (${m.price} so'm/${m.unit})</option>`).join('');
+        }
+
+        function addMaterialToCalc() {
+            const id = document.getElementById('calc-mat-select').value;
+            const qty = parseFloat(document.getElementById('calc-mat-qty').value);
+            if(!id || !qty) return;
+
+            const m = materials.find(x => x.id == id);
+            currentMats.push({
+                id: m.id,
+                name: m.name,
+                unit: m.unit,
+                price: m.price,
+                qty: qty,
+                total: m.price * qty
+            });
+
+            renderCalcMats();
+            updateTotals();
+            document.getElementById('calc-mat-qty').value = '';
+        }
+
+        function renderCalcMats() {
+            const list = document.getElementById('calc-mat-list');
+            list.innerHTML = currentMats.map((item, idx) => `
+                <li>
+                    ${item.name}: ${item.qty} ${item.unit} x ${item.price} = <b>${item.total.toLocaleString()}</b>
+                    <span style="color:red; cursor:pointer; margin-left:5px;" onclick="removeCalcMat(${idx})">x</span>
+                </li>
+            `).join('');
+            
+            const total = currentMats.reduce((sum, i) => sum + i.total, 0);
+            document.getElementById('total-mat').innerText = total.toLocaleString();
+        }
+
+        function removeCalcMat(idx) {
+            currentMats.splice(idx, 1);
+            renderCalcMats();
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const matTotal = currentMats.reduce((sum, i) => sum + i.total, 0);
+            
+            const labor = parseFloat(document.getElementById('calc-labor').value) || 0;
+            const social = labor * 0.12;
+            document.getElementById('calc-social').value = social;
+            document.getElementById('total-labor').innerText = (labor + social).toLocaleString();
+
+            const overhead = parseFloat(document.getElementById('calc-overhead').value) || 0;
+            document.getElementById('total-overhead').innerText = overhead.toLocaleString();
+
+            const grandTotal = matTotal + labor + social + overhead;
+            const  qty = parseFloat(document.getElementById('prod-qty').value) || 1;
+            const unitCost = grandTotal / qty;
+
+            document.getElementById('res-qty').innerText = qty;
+            document.getElementById('res-total').innerText = grandTotal.toLocaleString() + " so'm";
+            document.getElementById('res-unit').innerText = unitCost.toLocaleString(undefined, {maximumFractionDigits:2}) + " so'm";
+        }
+
+        document.getElementById('prod-qty').addEventListener('input', updateTotals);
+
+        function saveProduction() {
+            const name = document.getElementById('prod-name').value;
+            const qty = parseFloat(document.getElementById('prod-qty').value);
+            if(!name || !qty) { alert("Mahsulot nomi va sonini kiriting!"); return; }
+
+            const matTotal = currentMats.reduce((sum, i) => sum + i.total, 0);
+            const labor = parseFloat(document.getElementById('calc-labor').value) || 0;
+            const social = labor * 0.12;
+            const overhead = parseFloat(document.getElementById('calc-overhead').value) || 0;
+            const total = matTotal + labor + social + overhead;
+
+            history.unshift({
+                id: Date.now(),
+                date: new Date().toLocaleDateString(),
+                product: name,
+                qty: qty,
+                cost_mat: matTotal,
+                cost_labor: labor + social,
+                cost_overhead: overhead,
+                total: total,
+                unit_cost: total / qty,
+                materials: [...currentMats]
+            });
+
+            localStorage.setItem('mfg_history', JSON.stringify(history));
+            alert("Ishlab chiqarish saqlandi! Tayyor mahsulot tannarxi hisoblandi.");
+            
+            // Reset
+            currentMats = [];
+            document.getElementById('prod-name').value = '';
+            document.getElementById('calc-labor').value = '';
+            document.getElementById('calc-overhead').value = '';
+            renderCalcMats();
+            updateTotals();
+            renderHistory();
+            setTab('history');
+        }
+
+        // --- HISTORY ---
+        function renderHistory() {
+            const tbody = document.getElementById('hist-tbody');
+            tbody.innerHTML = history.map(h => `
+                <tr>
+                    <td>${h.date}</td>
+                    <td><b>${h.product}</b></td>
+                    <td>${h.qty}</td>
+                    <td class="num-col">${h.total.toLocaleString()}</td>
+                    <td class="num-col" style="font-weight:bold; color:#d97706;">${h.unit_cost.toLocaleString(undefined, {maximumFractionDigits:2})}</td>
+                    <td class="no-print">
+                        <small>
+                            Xom: ${h.cost_mat.toLocaleString()}<br>
+                            Ish: ${h.cost_labor.toLocaleString()}<br>
+                            Bil: ${h.cost_overhead.toLocaleString()}
+                        </small>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+    </script>
+
+</body>
+</html>
